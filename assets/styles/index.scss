@@ -1,2 +1,18 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+table {
+  width: 75%;
+  border-collapse: collapse;
+  margin: 0 auto
+}
+td {
+  border: 6px solid #222;
+  width: 33.333%;
+    &::after {
+    content: '';
+    display: block;
+    margin-top: 70%;
+    }
+  }
