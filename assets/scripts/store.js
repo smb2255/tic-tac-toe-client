@@ -6,7 +6,7 @@ const store = {
     'over': false
   }
 }
-const ticTacToe = {
+const gameArray = {
   turn: 'o',
   currentGame: ['', '', '', '', '', '', '', '', ''],
   win: false
@@ -14,6 +14,6 @@ const ticTacToe = {
 
 module.exports = {
   store,
-  ticTacToe
+  gameArray
 }
 // what variables will I need for the functions?

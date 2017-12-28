@@ -27,7 +27,7 @@ const addHandlers = function () {
     const boxNum = this.id
     player(boxNum)
   }
-  // $('#Tic-Tac-Toe td').on('click', someFunction)
+
   $('#0').on('click', someFunction)
   $('#1').on('click', someFunction)
   $('#2').on('click', someFunction)
@@ -44,9 +44,37 @@ const addHandlers = function () {
   turnCount = turnCount + 1
 }
 
-const gameArray = ['', '', '', '', '', '', ]
+const gameArray = ['', '', '', '', '', '', '', '', '']
 
-//
+const checkWinner = function () {
+  if ((gameArray[0] === gameArray[1]) && (gameArray[0] && gameArray[2]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[3] === gameArray[4]) && (gameArray[3] && gameArray[5]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[6] === gameArray[7]) && (gameArray[6] && gameArray[8]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[0] === gameArray[3]) && (gameArray[0] && gameArray[6]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[1] === gameArray[4]) && (gameArray[1] && gameArray[7]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[2] === gameArray[5]) && (gameArray[2] && gameArray[8]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[0] === gameArray[4]) && (gameArray[0] && gameArray[8]) && (gameArray[0] !== '')) {
+    return true
+  } else if
+  ((gameArray[6] === gameArray[4]) && (gameArray[6] && gameArray[2]) && (gameArray[0] !== '')) {
+    return true
+  }
+}
+
+// need to log if game = 0,1,2 win= true, if else = false
+// next I need to be able to make sure the turns are stored in an array and see if the stored sequences match a winning sequence.
 // var winConditions = {
 // return winner(0,1,2)
 // return winner(3,4,5)
@@ -61,5 +89,6 @@ const gameArray = ['', '', '', '', '', '', ]
 module.exports = {
   addHandlers,
   currentPlayer,
-  player
+  player,
+  checkWinner
 }
