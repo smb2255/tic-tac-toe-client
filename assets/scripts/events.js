@@ -10,26 +10,34 @@ const addHandlers = function () {
     store.game.cells[cellIndex] = 'x'
     console.log(store.game.cells)
 
+
     turnCount = turnCount + 1
-  })
+const player = function () {
+    if (turnCount % 2 === 0) {
+      console.log('even')
+      player = 'x';
+    }
+    else {
+      console.log('odd')
+      player = '0'
+    }
+  }
+
+var winConditions = {
+return winner(0,1,2)
+return winner(3,4,5)
+return winner(6,7,8)
+return winner(0,3,6)
+return winner(1,4,7)
+return winner(2,5,8)
+return winner(0,4,8)
+return winner(6,4,2)
 }
+
+
 
 
 
 module.exports = {
-  // add function name
   addHandlers
 }
-
-//counter function
-//if that numher is odd, it's x's turn; turn increases by oNE
-// if that number is even, it's o's turn; turn increases by one
-
-// need to be able to log each move, so that you can have move switch player, move.
-// to do that I need a function the records a move, saves it under an array correnponding to one player
-// change turn- if X change to O if O change to X - only after that player has made thier move
-// how do I get the code to run in a sequence so that the "next turns comes up after the player has made their move of choice?"...do I need an event listener for this...listening after 'click'
-//how do I make a counter function that logs the turns and if odd then it's X turn, if even then O
-
-
-  //counter variable starting with 0
