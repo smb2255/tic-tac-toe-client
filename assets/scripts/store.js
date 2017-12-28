@@ -12,9 +12,8 @@ const ticTacToe = {
   win: false
 }
 
-
 module.exports = {
-  store
+  store,
   ticTacToe
 }
 // what variables will I need for the functions?
