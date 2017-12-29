@@ -1,5 +1,5 @@
 const store = require('./store')
-
+const gameArray = ['', '', '', '', '', '', '', '', '']
 let turnCount = 0
 let currentPlayer = ''
 
@@ -11,12 +11,16 @@ const player = function (boxNum) {
     const boxId = '#' + boxNum
     $(boxId).text('X')
     turnCount++
+    gameArray[boxNum] = 'x'
+    console.log('this works', gameArray)
   } else {
     console.log('odd')
     currentPlayer = '0'
     const boxId = '#' + boxNum
     $(boxId).text('O')
     turnCount++
+    gameArray[boxNum] = 'o'
+    console.log('this works', gameArray)
   }
 }
 const addHandlers = function () {
@@ -37,17 +41,18 @@ const addHandlers = function () {
   $('#6').on('click', someFunction)
   $('#7').on('click', someFunction)
   $('#8').on('click', someFunction)
-  const cellIndex = $(event.target).attr('id')
-  console.log('look at me I am cell index', cellIndex)
-  store.game.cells[cellIndex] = 'x'
-  console.log(store.game.cells)
-  turnCount = turnCount + 1
+  // const cellIndex = $(event.target).attr('id')
+  // console.log(cellIndex)
+  // console.log('look at me I am cell index', cellIndex)
+  // store.game.cells[cellIndex] = 'x'
+  // console.log(store)
+  // console.log(store.game.cells)
+  // turnCount = turnCount + 1
 }
-
-const gameArray = ['', '', '', '', '', '', '', '', '']
 
 const checkWinner = function () {
   if ((gameArray[0] === gameArray[1]) && (gameArray[0] && gameArray[2]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[3] === gameArray[4]) && (gameArray[3] && gameArray[5]) && (gameArray[0] !== '')) {
