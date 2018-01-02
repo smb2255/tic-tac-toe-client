@@ -49,6 +49,22 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  userApi.signOut(data)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
+const onChangePass = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  userApi.changePass(data)
+    .then(ui.changePassSuccess)
+    .catch(ui.changePassFailure)
+}
+
 const addHandlers = function () {
   const someFunction = function (event) {
     event.preventDefault()
@@ -69,6 +85,8 @@ const addHandlers = function () {
   $('#8').on('click', someFunction)
   $('#sign-up').on('submit', onCreateUser)
   $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('submit', onSignOut)
+  $('#change-pass').on('submit', onChangePass)
 }
 
 const checkWinner = function () {
@@ -118,5 +136,6 @@ module.exports = {
   player,
   checkWinner,
   onCreateUser,
-  onSignIn
+  onSignIn,
+  onSignOut
 }

@@ -17,7 +17,25 @@ const signIn = function (data) {
   })
 }
 
+const signOut = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/sign-out',
+    method: 'DELETE',
+    data
+  })
+}
+
+const changePass = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/change-pass',
+    method: 'PATCH',
+    data
+  })
+}
+
 module.exports = {
   create,
-  signIn
+  signIn,
+  signOut,
+  changePass
 }
