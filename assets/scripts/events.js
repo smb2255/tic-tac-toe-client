@@ -5,10 +5,52 @@ const userApi = require('./users/api/api')
 const config = require('./config')
 const ui = require('./ui')
 // require ui
+// write a 'start game' function
+// var game = function ()
+// currentState = new State();
+// currentState.gameArray = ['', '', '', '', '', '', '', '', ''];
+// currentState.turn = "X"
+// status = 'beginning'
+//
+// this.startState = function(_state) {
+//         this.currentState = _state;
+//   if(this.status = 'beginning') {
+//     this.startState (this.currentState)
+//
+// this.start = function() {
+//   if(this.status = "beginning") {
+//       this.advanceTo(this.currentState);
+// }
 
-const gameArray = ['', '', '', '', '', '', '', '', '']
-let turnCount = 0
-let currentPlayer = ''
+let gameArray = []
+let turnCount
+let currentPlayer
+
+const createGame = function () {
+  gameArray = ['', '', '', '', '', '', '', '', '']
+  turnCount = 0
+  currentPlayer = ''
+}
+
+const resetGameBoard = function () {
+  for (let i = 0; i < 8; i++) {
+    $(`#${i}`).html('')
+  }
+}
+const resetGame = function () {
+  createGame()
+  resetGameBoard()
+}
+
+// const newMove(){
+//   if(!store.user) {
+//
+  }
+  //const turn(box) {
+
+}
+
+
 
 const player = function (boxNum) {
   console.log('I know what boxnum is, it is', boxNum)
@@ -87,6 +129,7 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-pass').on('submit', onChangePass)
+  $('#start-button').on('click', resetGame)
 }
 
 const checkWinner = function () {
@@ -117,6 +160,13 @@ const checkWinner = function () {
   }
 }
 
+// write a 'reset game' function
+// const resetGame = function () {
+//   game.gameArray = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null']
+//   game.playerXturn = true
+//   game.gameOver = false
+// }
+
 // need to log if game = 0,1,2 win= true, if else = false
 // next I need to be able to make sure the turns are stored in an array and see if the stored sequences match a winning sequence.
 // var winConditions = {
@@ -137,5 +187,7 @@ module.exports = {
   checkWinner,
   onCreateUser,
   onSignIn,
-  onSignOut
+  onSignOut,
+  createGame,
+  resetGame
 }

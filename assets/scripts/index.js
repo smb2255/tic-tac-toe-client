@@ -11,6 +11,7 @@ $(() => {
 
 $(() => {
   events.addHandlers()
+  events.createGame()
   gameLogic.testFunction()
 })
 
