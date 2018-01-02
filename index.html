@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-      <title>Game Board</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>Game Board</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-      <body>
-          <table id="Tic-Tac-Toe">
-              <tr>
-                <td id="0">
-              </td>
-                <td id="1">
-                <td id="2">
-              </tr>
-              <tr>
-                <td id="3">
-                <td id="4">
-                <td id="5">
-              </tr>
-              <tr>
-                <td id="6">
-                <td id="7">
-                <td id="8">
-              </tr>
-            </table>
-          </body>
-        </div>
-<button type="button" class="btn btn-primary btn-lg">Sign In</button>
-//pair with modal
-<button type="button" class="btn btn-primary btn-lg">New User</button>
-//pair with modal
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-
-
-
-
+<body>
+  <table id="Tic-Tac-Toe">
+    <tr>
+      <td id="0"></td>
+      <td id="1"></td>
+      <td id="2"></td>
+    </tr>
+    <tr>
+      <td id="3"></td>
+      <td id="4"></td>
+      <td id="5"></td>
+    </tr>
+    <tr>
+      <td id="6"></td>
+      <td id="7"></td>
+      <td id="8"></td>
+    </tr>
+  </table>
+  </div>
+  <div>
+    <h1>Tic Tac Toe</h1>
+    <form id="sign-up">
+      <fieldset>
+        <input name="credentials[email]" type="text" placeholder="an@example.email">
+        <input name="credentials[password]" type="password" placeholder="an example password">
+        <button>SIGN UP</button>
+      </fieldset>
+    </form>
+    <div id="user-msg">
+    </div>
+    <div>
+      <form id="sign-in">
+        <fieldset>
+          <input name="credentials[email]" type="text" value="an@example.email">
+          <input name="credentials[password]" type="password" value="an example password">
+          <button>SIGN IN</button>
+        </fieldset>
+      </form>
+    </div>
 </body>
+
 </html>

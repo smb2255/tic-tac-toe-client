@@ -1,4 +1,11 @@
-const store = require('./store')
+'use strict'
+// const store = require('./store')
+const getFormFields = require('../../lib/get-form-fields')
+const userApi = require('./users/api/api')
+const config = require('./config')
+const ui = require('./ui')
+// require ui
+
 const gameArray = ['', '', '', '', '', '', '', '', '']
 let turnCount = 0
 let currentPlayer = ''
@@ -23,6 +30,25 @@ const player = function (boxNum) {
     console.log('this works', gameArray)
   }
 }
+
+const onCreateUser = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  console.log(config.apiOrigin)
+  userApi.create(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
+
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  userApi.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
 const addHandlers = function () {
   const someFunction = function (event) {
     event.preventDefault()
@@ -41,13 +67,8 @@ const addHandlers = function () {
   $('#6').on('click', someFunction)
   $('#7').on('click', someFunction)
   $('#8').on('click', someFunction)
-  // const cellIndex = $(event.target).attr('id')
-  // console.log(cellIndex)
-  // console.log('look at me I am cell index', cellIndex)
-  // store.game.cells[cellIndex] = 'x'
-  // console.log(store)
-  // console.log(store.game.cells)
-  // turnCount = turnCount + 1
+  $('#sign-up').on('submit', onCreateUser)
+  $('#sign-in').on('submit', onSignIn)
 }
 
 const checkWinner = function () {
@@ -95,5 +116,7 @@ module.exports = {
   addHandlers,
   currentPlayer,
   player,
-  checkWinner
+  checkWinner,
+  onCreateUser,
+  onSignIn
 }
