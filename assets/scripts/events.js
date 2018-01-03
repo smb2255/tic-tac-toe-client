@@ -12,7 +12,7 @@ let currentPlayer
 const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
   turnCount = 0
-  currentPlayer = 'x'
+  currentPlayer = 'X'
 }
 
 const resetGameBoard = function () {
@@ -86,7 +86,7 @@ const addHandlers = function () {
     console.log(this.id)
     console.log('i am the turn', turnCount)
     const boxNum = this.id
-    player(boxNum)
+    // player(boxNum)
   }
 
   $('#0').on('click', someFunction)
@@ -106,8 +106,9 @@ const addHandlers = function () {
 }
 
 $('#Tic-Tac-Toe').click(function (event) {
-  if ($(event.target).text()) {
+  if (event.target.innerText !== '') {
     console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
+    $('#space-taken').show()
   } else {
     $(event.target).text(currentPlayer)
     checkWinner()
@@ -115,6 +116,13 @@ $('#Tic-Tac-Toe').click(function (event) {
     // checkDraw()
   }
 })
+// $('#Tic-Tac-Toe').click(function () {
+//   $('#space-taken').hide()
+// })
+//
+// $('#Tic-Tac-Toe').click(function () {
+//   $('#space-taken').show()
+// })
 
 const checkWinner = function () {
   if ((gameArray[0] === gameArray[1]) && (gameArray[0] && gameArray[2]) && (gameArray[0] !== '')) {
