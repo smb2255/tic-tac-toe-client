@@ -4,23 +4,6 @@ const getFormFields = require('../../lib/get-form-fields')
 const userApi = require('./users/api/api')
 const config = require('./config')
 const ui = require('./ui')
-// require ui
-// write a 'start game' function
-// var game = function ()
-// currentState = new State();
-// currentState.gameArray = ['', '', '', '', '', '', '', '', ''];
-// currentState.turn = "X"
-// status = 'beginning'
-//
-// this.startState = function(_state) {
-//         this.currentState = _state;
-//   if(this.status = 'beginning') {
-//     this.startState (this.currentState)
-//
-// this.start = function() {
-//   if(this.status = "beginning") {
-//       this.advanceTo(this.currentState);
-// }
 
 let gameArray = []
 let turnCount
@@ -29,7 +12,7 @@ let currentPlayer
 const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
   turnCount = 0
-  currentPlayer = ''
+  currentPlayer = 'x'
 }
 
 const resetGameBoard = function () {
@@ -42,18 +25,8 @@ const resetGame = function () {
   resetGameBoard()
 }
 
-// const newMove(){
-//   if(!store.user) {
-//
-  }
-  //const turn(box) {
-
-}
-
-
-
 const player = function (boxNum) {
-  console.log('I know what boxnum is, it is', boxNum)
+  console.log('boxnum is', boxNum)
   if (turnCount % 2 === 0) {
     console.log('even')
     currentPlayer = 'X'
@@ -131,6 +104,17 @@ const addHandlers = function () {
   $('#change-pass').on('submit', onChangePass)
   $('#start-button').on('click', resetGame)
 }
+
+$('#Tic-Tac-Toe').click(function (event) {
+  if ($(event.target).text()) {
+    console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
+  } else {
+    $(event.target).text(currentPlayer)
+    checkWinner()
+    player()
+    // checkDraw()
+  }
+})
 
 const checkWinner = function () {
   if ((gameArray[0] === gameArray[1]) && (gameArray[0] && gameArray[2]) && (gameArray[0] !== '')) {

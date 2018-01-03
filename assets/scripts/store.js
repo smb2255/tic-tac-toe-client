@@ -16,4 +16,3 @@ module.exports = {
   store,
   gameArray
 }
-// what variables will I need for the functions?
