@@ -91,6 +91,12 @@ const addHandlers = function () {
       $('#space-taken').show()
     } else {
       player(boxNum)
+      console.log(checkWinner())
+      if ((checkWinner()) && !(turnCount % 2 === 0)) {
+        $('#x-winner').show()
+      } else if (checkWinner()) {
+        $('#o-winner').show()
+      }
     }
   }
 
@@ -110,50 +116,40 @@ const addHandlers = function () {
   $('#start-button').on('click', resetGame)
 }
 
-// $('#Tic-Tac-Toe').click(function (event) {
-//   if (event.target.innerText !== '') {
-//     console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
-//     $('#space-taken').show()
-//   } else {
-//     $(event.target).text(currentPlayer)
-//     checkWinner()
-//     player()
-//     // checkDraw()
-//   }
-// })
-// $('#Tic-Tac-Toe').click(function () {
-//   $('#space-taken').hide()
-// })
-//
-// $('#Tic-Tac-Toe').click(function () {
-//   $('#space-taken').show()
-// })
-
 const checkWinner = function () {
   if ((gameArray[0] === gameArray[1]) && (gameArray[0] && gameArray[2]) && (gameArray[0] !== '')) {
     console.log('this works')
     return true
   } else if
   ((gameArray[3] === gameArray[4]) && (gameArray[3] && gameArray[5]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[6] === gameArray[7]) && (gameArray[6] && gameArray[8]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[0] === gameArray[3]) && (gameArray[0] && gameArray[6]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[1] === gameArray[4]) && (gameArray[1] && gameArray[7]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[2] === gameArray[5]) && (gameArray[2] && gameArray[8]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[0] === gameArray[4]) && (gameArray[0] && gameArray[8]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
   } else if
   ((gameArray[6] === gameArray[4]) && (gameArray[6] && gameArray[2]) && (gameArray[0] !== '')) {
+    console.log('this works')
     return true
+  } else {
+    return false
   }
 }
 
