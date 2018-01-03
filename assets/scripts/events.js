@@ -86,7 +86,12 @@ const addHandlers = function () {
     console.log(this.id)
     console.log('i am the turn', turnCount)
     const boxNum = this.id
-    // player(boxNum)
+    if (gameArray[boxNum] !== '') {
+      console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
+      $('#space-taken').show()
+    } else {
+      player(boxNum)
+    }
   }
 
   $('#0').on('click', someFunction)
@@ -105,17 +110,17 @@ const addHandlers = function () {
   $('#start-button').on('click', resetGame)
 }
 
-$('#Tic-Tac-Toe').click(function (event) {
-  if (event.target.innerText !== '') {
-    console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
-    $('#space-taken').show()
-  } else {
-    $(event.target).text(currentPlayer)
-    checkWinner()
-    player()
-    // checkDraw()
-  }
-})
+// $('#Tic-Tac-Toe').click(function (event) {
+//   if (event.target.innerText !== '') {
+//     console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
+//     $('#space-taken').show()
+//   } else {
+//     $(event.target).text(currentPlayer)
+//     checkWinner()
+//     player()
+//     // checkDraw()
+//   }
+// })
 // $('#Tic-Tac-Toe').click(function () {
 //   $('#space-taken').hide()
 // })
