@@ -12,7 +12,7 @@ const signUpFailure = function () {
   $('#user-msg').html(`<p>Nay!</p>`)
 }
 const signInSuccess = function () {
-  $('#user-msg').html(`<p>Yay!</p>`)
+  // $('#gameboard').show
 }
 
 const signInFailure = function () {

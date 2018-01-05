@@ -16,7 +16,7 @@ const createGame = function () {
 }
 
 const resetGameBoard = function () {
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 9; i++) {
     $(`#${i}`).html('')
   }
 }
@@ -59,14 +59,37 @@ const onCreateUser = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(data)
+  console.log(config.apiOrigin)
   userApi.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
 
+// const showBoard = function () {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   console.log(config.apiOrigin)
+//   onSignIn(data)
+//   if (ui.signInSuccess === '') {
+//     console.log('this does work')
+//     $('#gameboard').show()
+//   } else {
+//     return false
+//   }
+// }
+
+// const showBoard = function (data) {
+//   if (onSignIn === [data]) {
+//     $('#gameboard').show()
+//   }
+// }
+
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(data)
+  console.log(config.apiOrigin)
   userApi.signOut(data)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -75,9 +98,19 @@ const onSignOut = function (event) {
 const onChangePass = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(data)
+  console.log(config.apiOrigin)
   userApi.changePass(data)
     .then(ui.changePassSuccess)
     .catch(ui.changePassFailure)
+}
+
+const onGameIndex = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  console.log(config.apiOrigin)
+  userApi.gameIndex(data)
 }
 
 const addHandlers = function () {
@@ -94,8 +127,10 @@ const addHandlers = function () {
       console.log(checkWinner())
       if ((checkWinner()) && !(turnCount % 2 === 0)) {
         $('#x-winner').show()
+        $('#new-game').show()
       } else if (checkWinner()) {
         $('#o-winner').show()
+        $('#new-game').show()
       }
     }
   }
@@ -182,5 +217,7 @@ module.exports = {
   onSignIn,
   onSignOut,
   createGame,
-  resetGame
+  resetGame,
+  onGameIndex
+  // showBoard
 }

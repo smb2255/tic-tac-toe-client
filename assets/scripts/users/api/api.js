@@ -33,9 +33,18 @@ const changePass = function (data) {
   })
 }
 
+const gameIndex = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + `/games`,
+    method: 'POST',
+    data
+  })
+}
+
 module.exports = {
   create,
   signIn,
   signOut,
-  changePass
+  changePass,
+  gameIndex
 }
