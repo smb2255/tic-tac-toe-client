@@ -9,6 +9,7 @@ let gameArray = []
 let turnCount
 let currentPlayer
 
+// let showBoard = false
 const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
   turnCount = 0
@@ -59,13 +60,16 @@ const onCreateUser = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  $('#Tic-Tac-Toe').show('#Tic-Tac-Toe')
+  // const showBoard = true
   console.log(data)
   console.log(config.apiOrigin)
   userApi.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
+// const onShowBoard = function () {
+// $('#Tic-Tac-Toe').showBoard()
+// }
 
 const onSignOut = function (event) {
   event.preventDefault()
@@ -90,7 +94,6 @@ const onChangePass = function (event) {
   console.log(config.apiOrigin)
   userApi.changePass(data)
     .then(ui.changePassSuccess)
-  $('#Tic-Tac-Toe').show()
     .catch(ui.changePassFailure)
 }
 
@@ -137,6 +140,8 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-pass').on('submit', onChangePass)
+  $('#Tic-Tac-Toe').on('submit', onSignIn)
+  $('#start-button').on('click', resetGame)
   return false
   // $('#start-button').on('click', resetGame)
   // $('#Tic-Tac-Toe').on('submit', onSignIn)
@@ -197,4 +202,5 @@ module.exports = {
   createGame,
   resetGame,
   onGameIndex
+  // onShowBoard
 }
