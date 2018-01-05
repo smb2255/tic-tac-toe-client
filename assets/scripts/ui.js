@@ -12,9 +12,11 @@ const signUpFailure = function () {
   $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
 const signInSuccess = function () {
-  $('#sign-in-msg').html(`<p>You have signed in!</p>`)
-  // $('#gameboard').show
+  // $('#sign-in-msg').html(`<p>You have signed in!</p>`)
+  $('#Tic-Tac-Toe').html(`<tr> </tr>`)
+  return false
 }
+// $('#gameboard').show
 
 const signInFailure = function () {
   $('#user-msg').html(`<p>Sign-in failed!</p>`)

@@ -59,11 +59,12 @@ const onCreateUser = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  $('#Tic-Tac-Toe').show('#Tic-Tac-Toe')
   console.log(data)
   console.log(config.apiOrigin)
   userApi.signIn(data)
     .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
+  // .catch(ui.signInFailure)
 }
 
 // const showBoard = function () {
@@ -92,6 +93,7 @@ const onSignOut = function (event) {
   console.log(config.apiOrigin)
   userApi.signOut(data)
     .then(ui.signOutSuccess)
+  $('#Tic-Tac-Toe').show()
     .catch(ui.signOutFailure)
 }
 
@@ -102,6 +104,7 @@ const onChangePass = function (event) {
   console.log(config.apiOrigin)
   userApi.changePass(data)
     .then(ui.changePassSuccess)
+  $('#Tic-Tac-Toe').show()
     .catch(ui.changePassFailure)
 }
 
@@ -148,7 +151,9 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-pass').on('submit', onChangePass)
-  $('#start-button').on('click', resetGame)
+  return false
+  // $('#start-button').on('click', resetGame)
+  // $('#Tic-Tac-Toe').on('submit', onSignIn)
 }
 
 const checkWinner = function () {
@@ -206,5 +211,4 @@ module.exports = {
   createGame,
   resetGame,
   onGameIndex
-  // showBoard
 }

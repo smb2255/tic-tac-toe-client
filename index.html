@@ -13,8 +13,10 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body>
-  <table id="Tic-Tac-Toe">
+<div class= "jumbotron text-center">
+<body class= "container-fluid">
+  <h1> Tic Tac Toe </h1>
+  <table id="Tic-Tac-Toe"= style="display:none";>
     <tr>
       <td id="0"></td>
       <td id="1"></td>
@@ -31,6 +33,7 @@
       <td id="8"></td>
     </tr>
   </table>
+</div>
 
   <div id= "space-taken" style="display: none;">
       <p> Space taken, choose another space </p>
@@ -45,7 +48,6 @@
                 <p> Click "Reset" to start a new game </p>
               </div>
   <div>
-    <h1>Tic Tac Toe</h1>
     <form id="sign-up">
       <fieldset>
         <input name="credentials[email]" type="text" placeholder="email">
