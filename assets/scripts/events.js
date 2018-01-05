@@ -52,8 +52,8 @@ const onCreateUser = function (event) {
   console.log(data)
   console.log(config.apiOrigin)
   userApi.create(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+    .then(ui.createUserSuccess)
+    .catch(ui.createUserFailure)
 }
 
 const onSignIn = function (event) {
@@ -64,39 +64,25 @@ const onSignIn = function (event) {
   console.log(config.apiOrigin)
   userApi.signIn(data)
     .then(ui.signInSuccess)
-  // .catch(ui.signInFailure)
+    .catch(ui.signInFailure)
 }
-
-// const showBoard = function () {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   console.log(config.apiOrigin)
-//   onSignIn(data)
-//   if (ui.signInSuccess === '') {
-//     console.log('this does work')
-//     $('#gameboard').show()
-//   } else {
-//     return false
-//   }
-// }
-
-// const showBoard = function (data) {
-//   if (onSignIn === [data]) {
-//     $('#gameboard').show()
-//   }
-// }
 
 const onSignOut = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
-  console.log(config.apiOrigin)
-  userApi.signOut(data)
+  gameArray = ['', '', '', '', '', '', '', '', '']
+  $('#0').text('')
+  $('#1').text('')
+  $('#2').text('')
+  $('#3').text('')
+  $('#4').text('')
+  $('#5').text('')
+  $('#6').text('')
+  $('#7').text('')
+  $('#8').text('')
+  userApi.signOut()
     .then(ui.signOutSuccess)
-  $('#Tic-Tac-Toe').show()
     .catch(ui.signOutFailure)
 }
-
 const onChangePass = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)

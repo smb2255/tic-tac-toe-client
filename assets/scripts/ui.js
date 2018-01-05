@@ -12,7 +12,7 @@ const signUpFailure = function () {
   $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
 const signInSuccess = function () {
-  // $('#sign-in-msg').html(`<p>You have signed in!</p>`)
+  $('#sign-in-msg').html(`<p>You have signed in!</p>`)
   $('#Tic-Tac-Toe').html(`<tr> </tr>`)
   return false
 }
@@ -22,9 +22,27 @@ const signInFailure = function () {
   $('#user-msg').html(`<p>Sign-in failed!</p>`)
 }
 
+const signOutSuccess = function () {
+  $('#sign-out-msg').html(`<p>Sign-in success!</p>`)
+}
+
+const signOutFailure = function () {
+  $('#sign-out-msg').html(`<p>Sign-out failed!</p>`)
+}
+
+const createUserSuccess = function () {
+}
+
+const createUserFailure = function () {
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure
+  signInFailure,
+  signOutSuccess,
+  signOutFailure,
+  createUserSuccess,
+  createUserFailure
 }
