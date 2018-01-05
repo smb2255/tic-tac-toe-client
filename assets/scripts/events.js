@@ -195,19 +195,6 @@ const checkWinner = function () {
 //   game.gameOver = false
 // }
 
-// need to log if game = 0,1,2 win= true, if else = false
-// next I need to be able to make sure the turns are stored in an array and see if the stored sequences match a winning sequence.
-// var winConditions = {
-// return winner(0,1,2)
-// return winner(3,4,5)
-// return winner(6,7,8)
-// return winner(0,3,6)
-// return winner(1,4,7)
-// return winner(2,5,8)
-// return winner(0,4,8)
-// return winner(6,4,2)
-// }
-
 module.exports = {
   addHandlers,
   currentPlayer,

@@ -5,18 +5,19 @@
 // UI sign in failure: just make an html element using jquery that says NAY
 
 const signUpSuccess = function () {
-  $('#user-msg').html(`<p>Yay!</p>`)
+  $('#sign-up-msg').html(`<p>You have signed up!</p>`)
 }
 
 const signUpFailure = function () {
-  $('#user-msg').html(`<p>Nay!</p>`)
+  $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
 const signInSuccess = function () {
+  $('#sign-in-msg').html(`<p>You have signed in!</p>`)
   // $('#gameboard').show
 }
 
 const signInFailure = function () {
-  $('#user-msg').html(`<p>Nay!</p>`)
+  $('#user-msg').html(`<p>Sign-in failed!</p>`)
 }
 
 module.exports = {
