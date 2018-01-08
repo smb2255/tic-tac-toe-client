@@ -32,6 +32,7 @@ const player = function (boxNum) {
   if (turnCount % 2 === 0) {
     console.log('even')
     currentPlayer = 'X'
+    $('#turn-message').text(`current turn is O`)
     const boxId = '#' + boxNum
     $(boxId).text('X')
     turnCount++
@@ -40,6 +41,7 @@ const player = function (boxNum) {
   } else {
     console.log('odd')
     currentPlayer = '0'
+    $('#turn-message').text(`current turn is X`)
     const boxId = '#' + boxNum
     $(boxId).text('O')
     turnCount++
@@ -143,6 +145,7 @@ const addHandlers = function () {
   $('#change-pass').on('submit', onChangePass)
   $('#Tic-Tac-Toe').on('submit', onSignIn)
   $('#start-button').on('click', resetGame)
+  $('#turn-message').on('click', player)
   return false
   // $('#start-button').on('click', resetGame)
   // $('#Tic-Tac-Toe').on('submit', onSignIn)
