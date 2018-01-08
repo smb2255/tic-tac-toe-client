@@ -73,24 +73,24 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  gameArray = ['', '', '', '', '', '', '', '', '']
-  $('#0').text('')
-  $('#1').text('')
-  $('#2').text('')
-  $('#3').text('')
-  $('#4').text('')
-  $('#5').text('')
-  $('#6').text('')
-  $('#7').text('')
-  $('#8').text('')
+  // gameArray = ['', '', '', '', '', '', '', '', '']
+  // $('#0').text('')
+  // $('#1').text('')
+  // $('#2').text('')
+  // $('#3').text('')
+  // $('#4').text('')
+  // $('#5').text('')
+  // $('#6').text('')
+  // $('#7').text('')
+  // $('#8').text('')
   userApi.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
 const onChangePass = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
+  console.log('worked', data)
   console.log(config.apiOrigin)
   userApi.changePass(data)
     .then(ui.changePassSuccess)

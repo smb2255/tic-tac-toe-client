@@ -1,7 +1,7 @@
 'use strict'
 
 const config = require('../../config')
-// const store = require('../store')
+const store = require('../store')
 
 const create = function (data) {
   return $.ajax({
@@ -20,30 +20,22 @@ const signIn = function (data) {
 
 const signOut = function (data) {
   return $.ajax({
-    url: config.apiOrigin + `/sign-out/`,
-    method: 'DELETE'
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // },
-    // data
+    url: config.apiOrigin + '/sign-out/',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
 
 const changePass = function (data) {
   return $.ajax({
-    url: config.apiOrigin + `/change-password/`,
-    method: 'PATCH'
-    // headers: {
-    //   Authorization: 'Token token=' + store.user.token
-    // },
-    // data
-  })
-}
-
-const gameIndex = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + `/games`,
-    method: 'POST',
+    url: config.apiOrigin + '/change-password/',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data
   })
 }
@@ -52,6 +44,5 @@ module.exports = {
   create,
   signIn,
   signOut,
-  changePass,
-  gameIndex
+  changePass
 }
