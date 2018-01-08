@@ -1,67 +1,35 @@
 'use strict'
-const store = require('..store')
 
-const signUpSuccess = function (data) {
-  $('#sign-up-msg').html('You have signed up!')
-  $('#sign-up-msg').css('color', '#008B8B')
-  $('#sign-up-msg').css('background', '#DEB887')
-  $('#sign-up-msg').css('width', 'fit-content')
-  $('#sign-up-msg').css('margin', '0 auto')
-  store.user = data.user
-  $('#sign-up').each(function () {
-    this.reset()
-  })
+const signUpSuccess = function () {
+  $('#sign-up-msg').html(`<p>You have signed up!</p>`)
 }
 
 const signUpFailure = function () {
-  $('#sign-up-msg').html('Sign-up failed!')
-  $('#sign-up-msg').css('color', '#BA55D3')
-  $('#sign-up-msg').css('background', '#DEB887')
-  $('#sign-up-msg').css('width', 'fit-content')
-  $('#sign-up-msg').css('margin', '0 auto')
-  $('#sign-up').each(function () {
-    this.reset()
-  })
+  $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
-
-const signInSuccess = function (data) {
-  $('#sign-in-msg').html('You have signed in!')
-  $('#sign-in-msg').css('color', '#FF1493')
-  $('#sign-in-msg').css('background', '#DEB887')
-  $('#sign-in-msg').css('width', 'fit-content')
-  $('#sign-in-msg').css('margin', '0 auto')
-  store.user = data.user
-  $('#sign-out').each(function () {
-    this.reset()
-  })
+const signInSuccess = function () {
+  $('#sign-in-msg').html(`<p>You have signed in!</p>`)
+  $('#Tic-Tac-Toe').html(`<tr> </tr>`)
+  return false
 }
+// $('#gameboard').show
 
 const signInFailure = function () {
-  $('#sign-in-msg').html('Sign-in failed!')
-  $('#sign-in-msg').css('color', '#191970')
-  $('#sign-in-msg').css('background', '#DEB887')
-  $('#sign-in-msg').css('width', 'fit-content')
-  $('#sign-in-msg').css('margin', '0 auto')
-  $('#sign-in').each(function () {
-    this.reset()
-  })
+  $('#user-msg').html(`<p>Sign-in failed!</p>`)
 }
 
-const signOutSuccess = function (data) {
-  store.user = null
-  $('#sign-out-msg').html('Sign-in success!')
-  $('#sign-out-msg').css('color', '#7FFF00')
-  $('#sign-out-msg').css('background', '#DEB887')
-  $('#sign-out-msg').css('width', 'fit-content')
-  $('#sign-out-msg').css('margin', '0 auto')
+const signOutSuccess = function () {
+  $('#sign-out-msg').html(`<p>Sign-in success!</p>`)
 }
 
 const signOutFailure = function () {
-  $('#sign-out-msg').html('Sign-out failed!')
-  $('#sign-out-msg').css('color', '#0000FF')
-  $('#sign-out-msg').css('background', '#DEB887')
-  $('#sign-out-msg').css('width', 'fit-content')
-  $('#sign-out-msg').css('margin', '0 auto')
+  $('#sign-out-msg').html(`<p>Sign-out failed!</p>`)
+}
+
+const createUserSuccess = function () {
+}
+
+const createUserFailure = function () {
 }
 
 module.exports = {
@@ -70,5 +38,7 @@ module.exports = {
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createUserSuccess,
+  createUserFailure
 }

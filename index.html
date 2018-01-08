@@ -16,7 +16,6 @@
 <div class= "jumbotron text-center">
 <body class= "container-fluid">
   <h1> Tic Tac Toe </h1>
-  <p> Created by Sarah Burke </p>
   <table id="Tic-Tac-Toe">
     <tr>
       <td id="0"></td>
@@ -50,35 +49,13 @@
               </div>
   <div>
     <form id="sign-up">
+      <fieldset>
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <button>SIGN UP</button>
+      </fieldset>
     </form>
-      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
-                Sign up!
-        </button>
     <div id="sign-up-msg">
-      <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Create an Account</h5>
-
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                          <form id="sign-up">
-                                <input type="text" name="credentials[email]" placeholder="Enter Email"><br>
-                                <input type="password" name="credentials[password]" placeholder="Enter Password"><br>
-                                <br>
-                                <input type="submit" name="submit" id="sign-up-button" value="Create Account">
-                                </form>
-                                <br>
-                                <p class="sign-up-msg"></p>
-    </div>
-    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-          </div>
     </div>
     <div>
       <form id="sign-in">
