@@ -9,6 +9,8 @@ const ui = require('./ui')
 let gameArray = []
 let turnCount
 let currentPlayer
+// let gameOver = false
+// let over = false
 
 // let showBoard = false
 const createGame = function () {
@@ -20,6 +22,11 @@ const createGame = function () {
 const resetGameBoard = function () {
   for (let i = 0; i < 9; i++) {
     $(`#${i}`).html('')
+    $('#turn-message').text(' ')
+    $('#space-taken').hide()
+    $('#x-winner').hide()
+    $('#o-winner').hide()
+    $('#new-game').hide()
   }
 }
 const resetGame = function () {
@@ -123,9 +130,11 @@ const addHandlers = function () {
       if ((checkWinner()) && !(turnCount % 2 === 0)) {
         $('#x-winner').show()
         $('#new-game').show()
+        // gameOver = true
       } else if (checkWinner()) {
         $('#o-winner').show()
         $('#new-game').show()
+        // gameOver = true
       }
     }
   }
@@ -146,6 +155,7 @@ const addHandlers = function () {
   $('#Tic-Tac-Toe').on('submit', onSignIn)
   $('#start-button').on('click', resetGame)
   $('#turn-message').on('click', player)
+  $('#full-message').on('click', boardFull)
   return false
   // $('#start-button').on('click', resetGame)
   // $('#Tic-Tac-Toe').on('submit', onSignIn)
@@ -188,12 +198,25 @@ const checkWinner = function () {
   }
 }
 
-// write a 'reset game' function
-// const resetGame = function () {
-//   game.gameArray = ['null', 'null', 'null', 'null', 'null', 'null', 'null', 'null', 'null']
-//   game.playerXturn = true
-//   game.gameOver = false
+const boardFull = function (gameArray) {
+  for (let i = 0; i <= gameArray.length; i++) {
+    if (gameArray[i] === '') {
+      $('#full-message').text(`Board is full`)
+    }
+  }
+}
+// const onUpdateGame = function (boxNum) {
+// if ((checkWin() === true) || (boardFull(gameArray) === true)) {
+//     over = true
+//   }
 // }
+
+const onGetStats = function (event) {
+  event.preventDefault()
+  userApi.getStats()
+    .then(ui.getStatsSuccess)
+    .catch(ui.getStatsFailure)
+}
 
 module.exports = {
   addHandlers,
@@ -205,6 +228,8 @@ module.exports = {
   onSignOut,
   createGame,
   resetGame,
-  onGameIndex
-  // onShowBoard
+  onGameIndex,
+  boardFull,
+  // onUpdateGame,
+  onGetStats
 }

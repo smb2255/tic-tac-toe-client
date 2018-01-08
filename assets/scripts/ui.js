@@ -1,4 +1,5 @@
 'use strict'
+const store = require('./store')
 
 const signUpSuccess = function () {
   $('#sign-up-msg').html(`<p>You have signed up!</p>`)
@@ -7,9 +8,9 @@ const signUpSuccess = function () {
 const signUpFailure = function () {
   $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
-const signInSuccess = function () {
+const signInSuccess = function (data) {
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
-  $('#Tic-Tac-Toe').html(`<tr> </tr>`)
+  store.user = data.user
   return false
 }
 // $('#gameboard').show
@@ -26,10 +27,14 @@ const signOutFailure = function () {
   $('#sign-out-msg').html(`<p>Sign-out failed!</p>`)
 }
 
-const createUserSuccess = function () {
-}
-
-const createUserFailure = function () {
+const checkWin = function (token) {
+  let score = 0
+  for (let i = 0; i < store.games.length; i++) {
+    if ((store.games[i].cells[0] === token && store.games[i].cells[1] === token && store.games[i].cells[2] === token) || (store.games[i].cells[3] === token && store.games[i].cells[4] === token && store.games[i].cells[5] === token) || (store.games[i].cells[6] === token && store.games[i].cells[7] === token && store.games[i].cells[8] === token) || (store.games[i].cells[0] === token && store.games[i].cells[3] === token && store.games[i].cells[6] === token) || (store.games[i].cells[1] === token && store.games[i].cells[4] === token && store.games[i].cells[7] === token) || (store.games[i].cells[2] === token && store.games[i].cells[5] === token && store.games[i].cells[8] === token) || (store.games[i].cells[0] === token && store.games[i].cells[4] === token && store.games[i].cells[8] === token) || (store.games[i].cells[2] === token && store.games[i].cells[4] === token && store.games[i].cells[6] === token)) {
+      score++
+    }
+  }
+  return score
 }
 
 module.exports = {
@@ -39,6 +44,5 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  createUserSuccess,
-  createUserFailure
+  checkWin
 }

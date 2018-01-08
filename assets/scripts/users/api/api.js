@@ -31,7 +31,7 @@ const signOut = function (data) {
 
 const changePass = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/change-password/',
+    url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -42,7 +42,7 @@ const changePass = function (data) {
 
 const getStats = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games/?over=' + true,
+    url: config.apiOrigin + '/games/?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
