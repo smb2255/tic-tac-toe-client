@@ -16,7 +16,7 @@
 <div class= "jumbotron text-center">
 <body class= "container-fluid">
   <h1> Tic Tac Toe </h1>
-  <table id="Tic-Tac-Toe">
+  <table id="Tic-Tac-Toe" style= "display: none;">
     <tr>
       <td id="0"></td>
       <td id="1"></td>
@@ -45,11 +45,12 @@
               <p> Player O, you are the winner! </p>
             </div>
               <div id= "new-game" style="display: none;">
-                <p> Click "Reset" to start a new game </p>
+                <p> Game Over. Click "Reset" to start a new game </p>
               </div>
           <form id="turn-message">
           </form>
-          <form id="full-message">
+          <form id="full-message" style= "display: none;">
+            <p> Board is full. </p>
             </form>
   <div>
     <form id="sign-up">
@@ -59,7 +60,7 @@
         <button>SIGN UP</button>
       </fieldset>
     </form>
-    <div id="sign-up-msg">
+    <div id="sign-up-msg" style="display: none;">
     </div>
     <div>
       <form id="sign-in">

@@ -70,8 +70,7 @@ const onCreateUser = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // const showBoard = true
-  console.log(data)
+  // console.log(data)
   console.log(config.apiOrigin)
   userApi.signIn(data)
     .then(ui.signInSuccess)
@@ -83,16 +82,16 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  // gameArray = ['', '', '', '', '', '', '', '', '']
-  // $('#0').text('')
-  // $('#1').text('')
-  // $('#2').text('')
-  // $('#3').text('')
-  // $('#4').text('')
-  // $('#5').text('')
-  // $('#6').text('')
-  // $('#7').text('')
-  // $('#8').text('')
+  gameArray = ['', '', '', '', '', '', '', '', '']
+  $('#0').text('')
+  $('#1').text('')
+  $('#2').text('')
+  $('#3').text('')
+  $('#4').text('')
+  $('#5').text('')
+  $('#6').text('')
+  $('#7').text('')
+  $('#8').text('')
   userApi.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -201,7 +200,7 @@ const checkWinner = function () {
 const boardFull = function (gameArray) {
   for (let i = 0; i <= gameArray.length; i++) {
     if (gameArray[i] === '') {
-      $('#full-message').text(`Board is full`)
+      $('#full-message').show()
     }
   }
 }

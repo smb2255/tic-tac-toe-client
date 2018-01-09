@@ -2,16 +2,16 @@
 const store = require('./store')
 
 const signUpSuccess = function () {
-  $('#sign-up-msg').html(`<p>You have signed up!</p>`)
+  $('#sign-up-msg').show()
 }
 
 const signUpFailure = function () {
   $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
 const signInSuccess = function (data) {
+  $('#Tic-Tac-Toe').show()
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
-  store.user = data.user
-  return false
+  // store.user = data.user
 }
 // $('#gameboard').show
 
