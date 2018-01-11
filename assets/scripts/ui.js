@@ -8,7 +8,9 @@ const signUpSuccess = function () {
 const signUpFailure = function () {
   $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
-const signInSuccess = function (data) {
+const signInSuccess = function (response) {
+  store.user = response.user
+  console.log(store.user.token)
   $('#Tic-Tac-Toe').show()
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
   // store.user = data.user
@@ -20,7 +22,8 @@ const signInFailure = function () {
 }
 
 const signOutSuccess = function () {
-  $('#sign-out-msg').html(`<p>Sign-in success!</p>`)
+  store.user = null
+  $('#sign-out-msg').html(`<p>Sign-out success!</p>`)
 }
 
 const signOutFailure = function () {
