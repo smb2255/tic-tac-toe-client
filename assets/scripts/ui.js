@@ -13,6 +13,8 @@ const signInSuccess = function (response) {
   console.log(store.user.token)
   $('#Tic-Tac-Toe').show()
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
+  $('#credentials_SI').hide()
+
   // store.user = data.user
 }
 // $('#gameboard').show
