@@ -54,15 +54,15 @@
             </form>
   <div>
     <form id="sign-up">
-      <fieldset>
+    <div id="sign-up-msg">
+      </div>
+      <fieldset id = "credentials_SU">
         <input name="credentials[email]" type="text" placeholder="email">
         <input name="credentials[password]" type="password" placeholder="password">
         <button>SIGN UP</button>
       </fieldset>
     </form>
-    <div id="sign-up-msg" style="display: none;">
     </div>
-    <div>
       <form id="sign-in">
         <div id= "sign-in-msg">
         </div>
@@ -72,23 +72,22 @@
           <button>SIGN IN</button>
         </fieldset>
       </form>
-    </div>
-    <div id= "sign-out-msg">
-      <form id="sign-out">
-          <button>SIGN OUT</button>
-      </form>
-    </div>
     <div>
       <form id="change-pass">
         <fieldset>
-          <input name="credentials[email]" type="text" placeholder="email">
+          <input name="credentials[currentPass]" type="password" placeholder="current password">
           <input name="credentials[password]" type="password" placeholder="new password">
           <button>CHANGE PASSWORD</button>
         </fieldset>
       </form>
-      <div>
-        <button type="button" id="start-button">RESET</button>
+        <div id= "sign-out-msg">
+          <form id="sign-out">
+              <button>SIGN OUT</button>
+          </form>
         </div>
+        <div>
+          <button type="button" id="start-button">RESET</button>
+          </div>
 </body>
 
 </html>

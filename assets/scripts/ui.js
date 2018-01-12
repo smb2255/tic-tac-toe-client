@@ -2,7 +2,8 @@
 const store = require('./store')
 
 const signUpSuccess = function () {
-  $('#sign-up-msg').show()
+  $('#sign-up-msg').html('<p> Sign up success! </p>')
+  $('#credentials_SU').hide()
 }
 
 const signUpFailure = function () {
