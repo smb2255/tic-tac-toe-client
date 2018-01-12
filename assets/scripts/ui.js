@@ -33,6 +33,14 @@ const signOutFailure = function () {
   $('#sign-out-msg').html(`<p>Sign-out failed!</p>`)
 }
 
+const changePassSuccess = function () {
+  $('#change-pass-msg').html('<p> you have changed your password </p>')
+}
+
+const changePassFailure = function () {
+  $('#change-pass-msg').html('<p> you have not changed your password </p>')
+}
+
 const checkWin = function (token) {
   let score = 0
   for (let i = 0; i < store.games.length; i++) {
@@ -50,5 +58,7 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
+  changePassSuccess,
+  changePassFailure,
   checkWin
 }
