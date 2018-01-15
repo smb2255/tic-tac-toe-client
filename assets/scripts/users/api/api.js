@@ -31,6 +31,9 @@ const signOut = function (data) {
 }
 
 const changePass = function (data) {
+  console.log('store user id is ', store.user.id)
+  console.log('store user token is ', store.user.token)
+  console.log('data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',

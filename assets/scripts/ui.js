@@ -2,7 +2,7 @@
 const store = require('./store')
 
 const signUpSuccess = function () {
-  $('#sign-up-msg').html('<p> Sign up success! </p>')
+  $('#sign-up-msg').html(`<p> Sign up success! </p>`)
   $('#credentials_SU').hide()
 }
 
@@ -18,7 +18,6 @@ const signInSuccess = function (response) {
 
   // store.user = data.user
 }
-// $('#gameboard').show
 
 const signInFailure = function () {
   $('#user-msg').html(`<p>Sign-in failed!</p>`)
