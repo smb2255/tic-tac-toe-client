@@ -15,6 +15,8 @@ let currentPlayer
 // let showBoard = false
 const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
+
+  // in ui on succes - store.game = data.game
   turnCount = 0
   currentPlayer = 'X'
 }
@@ -32,6 +34,13 @@ const resetGameBoard = function () {
 const resetGame = function () {
   createGame()
   resetGameBoard()
+  $('#credentials_SI').hide()
+  $('#credentials_SU').hide()
+  $('#sign-out-msg').html('')
+  $('#change-pass-msg').html('')
+  $('#user-msg').html('')
+  $('#sign-in-msg').html('')
+  $('#Tic-Tac-Toe').hide()
 }
 
 const player = function (boxNum) {
@@ -120,6 +129,9 @@ const addHandlers = function () {
     console.log(this.id)
     console.log('i am the turn', turnCount)
     const boxNum = this.id
+    // GAME ARRAY
+    // WHEN YOU GET TO A GOOD POINT, YOU SHOULD BE UPDATING THE STORE TO REFLECT
+    // THE GAME STORED IN THE API, AND COMPARING THIS CELL TO THE NEWLY STORED cell
     if (gameArray[boxNum] !== '') {
       console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
       $('#space-taken').show()

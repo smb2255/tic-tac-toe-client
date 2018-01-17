@@ -59,7 +59,8 @@ const updateGame = function (data) {
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.user.token,
+      'Content-Type': 'application/json'
     },
     data
   })
@@ -74,6 +75,15 @@ const createGame = function () {
     }
   })
 }
+const getTotalGames = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   create,
@@ -82,5 +92,6 @@ module.exports = {
   changePass,
   getStats,
   createGame,
-  updateGame
+  updateGame,
+  getTotalGames
 }

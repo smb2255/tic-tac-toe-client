@@ -1,12 +1,12 @@
 'use strict'
 const store = require('./store')
 
-const signUpSuccess = function () {
+const createUserSuccess = function () {
   $('#sign-up-msg').html(`<p> Sign up success! </p>`)
   $('#credentials_SU').hide()
 }
 
-const signUpFailure = function () {
+const createUserFailure = function () {
   $('#user-msg').html(`<p>Sign-up failed!</p>`)
 }
 const signInSuccess = function (response) {
@@ -40,6 +40,10 @@ const changePassFailure = function () {
   $('#change-pass-msg').html('<p> you have not changed your password </p>')
 }
 
+const createGameSuccess = function (data) {
+  store.games = data.user
+}
+
 const checkWin = function (token) {
   let score = 0
   for (let i = 0; i < store.games.length; i++) {
@@ -51,8 +55,8 @@ const checkWin = function (token) {
 }
 
 module.exports = {
-  signUpSuccess,
-  signUpFailure,
+  createUserSuccess,
+  createUserFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
