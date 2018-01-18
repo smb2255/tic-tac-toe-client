@@ -66,7 +66,7 @@ const updateGame = function (data) {
   })
 }
 
-const createGame = function () {
+const startGame = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
@@ -91,7 +91,7 @@ module.exports = {
   signOut,
   changePass,
   getStats,
-  createGame,
+  startGame,
   updateGame,
   getTotalGames
 }

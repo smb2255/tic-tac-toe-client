@@ -1,7 +1,7 @@
 'use strict'
 // const store = require('./store')
 const getFormFields = require('../../lib/get-form-fields')
-const userApi = require('./users/api/api')
+const api = require('./users/api/api')
 const config = require('./config')
 const ui = require('./ui')
 // const store = require('.store')
@@ -15,8 +15,6 @@ let currentPlayer
 // let showBoard = false
 const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
-
-  // in ui on succes - store.game = data.game
   turnCount = 0
   currentPlayer = 'X'
 }
@@ -34,13 +32,13 @@ const resetGameBoard = function () {
 const resetGame = function () {
   createGame()
   resetGameBoard()
-  $('#credentials_SI').hide()
-  $('#credentials_SU').hide()
-  $('#sign-out-msg').html('')
-  $('#change-pass-msg').html('')
-  $('#user-msg').html('')
-  $('#sign-in-msg').html('')
-  $('#Tic-Tac-Toe').hide()
+  // $('#credentials_SI').hide()
+  // $('#credentials_SU').hide()
+  // $('#sign-out-msg').html('')
+  // $('#change-pass-msg').html('')
+  // $('#user-msg').html('')
+  // $('#sign-in-msg').html('')
+  // $('#Tic-Tac-Toe').hide()
 }
 
 const player = function (boxNum) {
@@ -71,7 +69,7 @@ const onCreateUser = function (event) {
   const data = getFormFields(event.target)
   console.log(data)
   console.log(config.apiOrigin)
-  userApi.create(data)
+  api.create(data)
     .then(ui.createUserSuccess)
     .catch(ui.createUserFailure)
 }
@@ -81,7 +79,7 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   // console.log(data)
   console.log(config.apiOrigin)
-  userApi.signIn(data)
+  api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
@@ -101,7 +99,7 @@ const onSignOut = function (event) {
   $('#6').text('')
   $('#7').text('')
   $('#8').text('')
-  userApi.signOut()
+  api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
@@ -110,9 +108,15 @@ const onChangePass = function (event) {
   event.preventDefault()
   console.log('worked', data)
   console.log(config.apiOrigin)
-  userApi.changePass(data)
+  api.changePass(data)
     .then(ui.changePassSuccess)
     .catch(ui.changePassFailure)
+}
+
+const startGame = function (event) {
+  api.startGame()
+    .then(ui.startGameSuccess)
+    .catch(ui.startGameFailure)
 }
 
 const onGameIndex = function (event) {
@@ -120,7 +124,7 @@ const onGameIndex = function (event) {
   const data = getFormFields(event.target)
   console.log(data)
   console.log(config.apiOrigin)
-  userApi.gameIndex(data)
+  api.gameIndex(data)
 }
 
 const addHandlers = function () {
@@ -224,7 +228,7 @@ const boardFull = function (gameArray) {
 
 const onGetStats = function (event) {
   event.preventDefault()
-  userApi.getStats()
+  api.getStats()
     .then(ui.getStatsSuccess)
     .catch(ui.getStatsFailure)
 }
@@ -241,6 +245,7 @@ module.exports = {
   resetGame,
   onGameIndex,
   boardFull,
+  startGame,
   // onUpdateGame,
   onGetStats
 }

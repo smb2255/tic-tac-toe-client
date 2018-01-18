@@ -40,8 +40,13 @@ const changePassFailure = function () {
   $('#change-pass-msg').html('<p> you have not changed your password </p>')
 }
 
-const createGameSuccess = function (data) {
-  store.games = data.user
+const startGameSuccess = function (data) {
+  store.games = data
+  console.log('that worked')
+}
+
+const startGameFailure = function (error) {
+  console.error(error)
 }
 
 const checkWin = function (token) {
@@ -63,5 +68,7 @@ module.exports = {
   signOutFailure,
   changePassSuccess,
   changePassFailure,
-  checkWin
+  checkWin,
+  startGameFailure,
+  startGameSuccess
 }
