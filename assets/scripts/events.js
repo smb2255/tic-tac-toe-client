@@ -163,6 +163,7 @@ const addHandlers = function () {
   $('#6').on('click', someFunction)
   $('#7').on('click', someFunction)
   $('#8').on('click', someFunction)
+  $('#start-button').on('click', startGame)
   $('#sign-up').on('submit', onCreateUser)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)

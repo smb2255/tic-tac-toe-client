@@ -12,9 +12,9 @@ const createUserFailure = function () {
 const signInSuccess = function (response) {
   store.user = response.user
   console.log(store.user.token)
-  $('#Tic-Tac-Toe').show()
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
   $('#credentials_SI').hide()
+  $('#start-button').show()
 
   // store.user = data.user
 }
@@ -42,6 +42,7 @@ const changePassFailure = function () {
 
 const startGameSuccess = function (data) {
   store.games = data
+  $('#Tic-Tac-Toe').show()
   console.log('that worked')
 }
 
