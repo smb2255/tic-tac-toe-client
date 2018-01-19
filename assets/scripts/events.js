@@ -128,7 +128,7 @@ const onGameIndex = function (event) {
 }
 
 const addHandlers = function () {
-  const someFunction = function (event) {
+  const boxClick = function (event) {
     event.preventDefault()
     console.log(this.id)
     console.log('i am the turn', turnCount)
@@ -154,15 +154,15 @@ const addHandlers = function () {
     }
   }
 
-  $('#0').on('click', someFunction)
-  $('#1').on('click', someFunction)
-  $('#2').on('click', someFunction)
-  $('#3').on('click', someFunction)
-  $('#4').on('click', someFunction)
-  $('#5').on('click', someFunction)
-  $('#6').on('click', someFunction)
-  $('#7').on('click', someFunction)
-  $('#8').on('click', someFunction)
+  $('#0').on('click', boxClick)
+  $('#1').on('click', boxClick)
+  $('#2').on('click', boxClick)
+  $('#3').on('click', boxClick)
+  $('#4').on('click', boxClick)
+  $('#5').on('click', boxClick)
+  $('#6').on('click', boxClick)
+  $('#7').on('click', boxClick)
+  $('#8').on('click', boxClick)
   $('#start-button').on('click', startGame)
   $('#sign-up').on('submit', onCreateUser)
   $('#sign-in').on('submit', onSignIn)
@@ -234,6 +234,11 @@ const onGetStats = function (event) {
     .catch(ui.getStatsFailure)
 }
 
+const onUpdateGame = function (event) {
+  api.updateGame()
+  // need to have this after each move.
+}
+
 module.exports = {
   addHandlers,
   currentPlayer,
@@ -247,6 +252,6 @@ module.exports = {
   onGameIndex,
   boardFull,
   startGame,
-  // onUpdateGame,
+  onUpdateGame,
   onGetStats
 }
