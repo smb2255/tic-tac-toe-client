@@ -50,6 +50,15 @@ const startGameFailure = function (error) {
   console.error(error)
 }
 
+const updateGameSuccess = function (data) {
+  store.games = data
+  console.log('successfully updated game')
+}
+
+const updateGameFailure = function (error) {
+  console.error(error)
+}
+
 const checkWin = function (token) {
   let score = 0
   for (let i = 0; i < store.games.length; i++) {
@@ -71,5 +80,7 @@ module.exports = {
   changePassFailure,
   checkWin,
   startGameFailure,
-  startGameSuccess
+  startGameSuccess,
+  updateGameSuccess,
+  updateGameFailure
 }

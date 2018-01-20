@@ -236,8 +236,11 @@ const onGetStats = function (event) {
 
 const onUpdateGame = function (event) {
   api.updateGame()
-  // need to have this after each move.
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
+
+// need to have this after each move.
 
 module.exports = {
   addHandlers,
