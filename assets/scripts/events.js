@@ -9,6 +9,7 @@ const ui = require('./ui')
 let gameArray = []
 let turnCount
 let currentPlayer
+let over = false
 // let gameOver = false
 // let over = false
 
@@ -17,6 +18,7 @@ const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
   turnCount = 0
   currentPlayer = 'X'
+  over = false
 }
 
 const resetGameBoard = function () {
@@ -99,6 +101,7 @@ const onSignOut = function (event) {
   $('#6').text('')
   $('#7').text('')
   $('#8').text('')
+  over = false
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -114,6 +117,7 @@ const onChangePass = function (event) {
 }
 
 const startGame = function (event) {
+  over = false
   api.startGame()
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -145,10 +149,12 @@ const addHandlers = function () {
       if ((checkWinner()) && !(turnCount % 2 === 0)) {
         $('#x-winner').show()
         $('#new-game').show()
+        onUpdateGame()
         // gameOver = true
       } else if (checkWinner()) {
         $('#o-winner').show()
         $('#new-game').show()
+        onUpdateGame()
         // gameOver = true
       }
     }
@@ -234,13 +240,14 @@ const onGetStats = function (event) {
     .catch(ui.getStatsFailure)
 }
 
-const onUpdateGame = function (event) {
+const onUpdateGame = function (boxNum) {
+  if ((checkWinner() === true) || (boardFull(gameArray) === true)) {
+    over = true
+  }
   api.updateGame()
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
 }
-
-// need to have this after each move.
 
 module.exports = {
   addHandlers,
