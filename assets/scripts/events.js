@@ -30,9 +30,11 @@ const resetGameBoard = function () {
     $('#new-game').hide()
   }
 }
-const resetGame = function () {
+const resetGame = function (event) {
   createGame()
   resetGameBoard()
+  // onCreateUser()
+  // onSignIn()
   // $('#credentials_SI').hide()
   // $('#credentials_SU').hide()
   // $('#sign-out-msg').html('')
@@ -148,11 +150,13 @@ const addHandlers = function () {
       if ((checkWinner()) && !(turnCount % 2 === 0)) {
         $('#x-winner').show()
         $('#new-game').show()
+        $('#turn-message').hide()
         onUpdateGame()
         // gameOver = true
       } else if (checkWinner()) {
         $('#o-winner').show()
         $('#new-game').show()
+        $('#turn-message').hide()
         onUpdateGame()
         // gameOver = true
       }
@@ -174,10 +178,11 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#change-pass').on('submit', onChangePass)
   $('#Tic-Tac-Toe').on('submit', onSignIn)
-  $('#start-button').on('click', resetGame)
+  $('#reset-button').on('click', resetGame)
   $('#turn-message').on('click', player)
   $('#full-message').on('click', boardFull)
   $('#stats-button').on('click', onGetStats)
+
   return false
   // $('#start-button').on('click', resetGame)
   // $('#Tic-Tac-Toe').on('submit', onSignIn)
