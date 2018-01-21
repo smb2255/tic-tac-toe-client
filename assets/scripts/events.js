@@ -9,8 +9,6 @@ const ui = require('./ui')
 let gameArray = []
 let turnCount
 let currentPlayer
-let over = false
-// let gameOver = false
 // let over = false
 
 // let showBoard = false
@@ -18,7 +16,7 @@ const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
   turnCount = 0
   currentPlayer = 'X'
-  over = false
+  // over = false
 }
 
 const resetGameBoard = function () {
@@ -101,7 +99,7 @@ const onSignOut = function (event) {
   $('#6').text('')
   $('#7').text('')
   $('#8').text('')
-  over = false
+  // over = false
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -117,7 +115,7 @@ const onChangePass = function (event) {
 }
 
 const startGame = function (event) {
-  over = false
+  // over = false
   api.startGame()
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -135,7 +133,7 @@ const addHandlers = function () {
   const boxClick = function (event) {
     event.preventDefault()
     console.log(this.id)
-    console.log('i am the turn', turnCount)
+    console.log(turnCount)
     const boxNum = this.id
     // GAME ARRAY
     // WHEN YOU GET TO A GOOD POINT, YOU SHOULD BE UPDATING THE STORE TO REFLECT
@@ -188,11 +186,11 @@ const checkWinner = function () {
     console.log('this works')
     return true
   } else if
-  ((gameArray[3] === gameArray[4]) && (gameArray[3] && gameArray[5]) && (gameArray[0] !== '')) {
+  ((gameArray[3] === gameArray[4]) && (gameArray[3] && gameArray[5]) && (gameArray[3] !== '')) {
     console.log('this works')
     return true
   } else if
-  ((gameArray[6] === gameArray[7]) && (gameArray[6] && gameArray[8]) && (gameArray[0] !== '')) {
+  ((gameArray[6] === gameArray[7]) && (gameArray[6] && gameArray[8]) && (gameArray[6] !== '')) {
     console.log('this works')
     return true
   } else if
@@ -200,11 +198,11 @@ const checkWinner = function () {
     console.log('this works')
     return true
   } else if
-  ((gameArray[1] === gameArray[4]) && (gameArray[1] && gameArray[7]) && (gameArray[0] !== '')) {
+  ((gameArray[1] === gameArray[4]) && (gameArray[1] && gameArray[7]) && (gameArray[1] !== '')) {
     console.log('this works')
     return true
   } else if
-  ((gameArray[2] === gameArray[5]) && (gameArray[2] && gameArray[8]) && (gameArray[0] !== '')) {
+  ((gameArray[2] === gameArray[5]) && (gameArray[2] && gameArray[8]) && (gameArray[2] !== '')) {
     console.log('this works')
     return true
   } else if
@@ -212,7 +210,7 @@ const checkWinner = function () {
     console.log('this works')
     return true
   } else if
-  ((gameArray[6] === gameArray[4]) && (gameArray[6] && gameArray[2]) && (gameArray[0] !== '')) {
+  ((gameArray[2] === gameArray[4]) && (gameArray[2] && gameArray[6]) && (gameArray[2] !== '')) {
     console.log('this works')
     return true
   } else {
@@ -242,7 +240,7 @@ const onGetStats = function (event) {
 
 const onUpdateGame = function (boxNum) {
   if ((checkWinner() === true) || (boardFull(gameArray) === true)) {
-    over = true
+    // over = true
   }
   api.updateGame()
     .then(ui.updateGameSuccess)

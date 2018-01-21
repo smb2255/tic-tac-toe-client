@@ -59,6 +59,15 @@ const updateGameFailure = function (error) {
   console.error(error)
 }
 
+const getStatsSuccess = function (data) {
+  store.stats = data
+  $('#statsMessaging').text('You have played' + store.stats.games.length + 'games')
+}
+
+const getStatsFailure = function (error) {
+  console.log(error)
+}
+
 const checkWin = function (token) {
   let score = 0
   for (let i = 0; i < store.games.length; i++) {
@@ -82,5 +91,7 @@ module.exports = {
   startGameFailure,
   startGameSuccess,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  getStatsSuccess,
+  getStatsFailure
 }
