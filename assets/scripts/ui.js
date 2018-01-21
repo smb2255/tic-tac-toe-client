@@ -46,6 +46,7 @@ const startGameSuccess = function (data) {
   store.games = data
   $('#Tic-Tac-Toe').show()
   $('#stats-button').show()
+  $('#reset-button').show()
   console.log('that worked')
 }
 
