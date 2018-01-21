@@ -15,6 +15,8 @@ const signInSuccess = function (response) {
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
   $('#credentials_SI').hide()
   $('#start-button').show()
+  $('#change-pass-msg').show()
+  $('#sign-out-msg').show()
 }
 
 // store.user = data.user
@@ -33,11 +35,11 @@ const signOutFailure = function () {
 }
 
 const changePassSuccess = function () {
-  $('#change-pass-msg').html('<p> you have changed your password </p>')
+  $('#change-pass-msg').html('<p> You have changed your password </p>')
 }
 
 const changePassFailure = function () {
-  $('#change-pass-msg').html('<p> you have not changed your password </p>')
+  $('#change-pass-msg').html('<p> You have not changed your password </p>')
 }
 
 const startGameSuccess = function (data) {
@@ -62,7 +64,7 @@ const updateGameFailure = function (error) {
 
 const getStatsSuccess = function (data) {
   store.stats = data
-  $('#stats-button').text('You have played' + store.stats.games.length + 'games')
+  $('#stats-button').text('You have played' + ' ' + store.stats.games.length + ' ' + 'games')
 }
 
 const getStatsFailure = function (error) {
