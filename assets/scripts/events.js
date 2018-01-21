@@ -4,6 +4,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./users/api/api')
 const config = require('./config')
 const ui = require('./ui')
+// const store = require('./store')
 // const store = require('.store')
 
 let gameArray = []
@@ -176,6 +177,7 @@ const addHandlers = function () {
   $('#start-button').on('click', resetGame)
   $('#turn-message').on('click', player)
   $('#full-message').on('click', boardFull)
+  $('#stats-button').on('click', onGetStats)
   return false
   // $('#start-button').on('click', resetGame)
   // $('#Tic-Tac-Toe').on('submit', onSignIn)

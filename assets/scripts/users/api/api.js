@@ -49,7 +49,8 @@ const getStats = function () {
     url: config.apiOrigin + '/games/?over=true',
     method: 'GET',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token=' + store.user.token,
+      'Content-Type': 'application/json'
     }
   })
 }

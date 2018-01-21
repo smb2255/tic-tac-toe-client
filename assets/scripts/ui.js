@@ -15,9 +15,9 @@ const signInSuccess = function (response) {
   $('#sign-in-msg').html(`<p>You have signed in!</p>`)
   $('#credentials_SI').hide()
   $('#start-button').show()
-
-  // store.user = data.user
 }
+
+// store.user = data.user
 
 const signInFailure = function () {
   $('#user-msg').html(`<p>Sign-in failed!</p>`)
@@ -43,6 +43,7 @@ const changePassFailure = function () {
 const startGameSuccess = function (data) {
   store.games = data
   $('#Tic-Tac-Toe').show()
+  $('#stats-button').show()
   console.log('that worked')
 }
 
@@ -61,7 +62,7 @@ const updateGameFailure = function (error) {
 
 const getStatsSuccess = function (data) {
   store.stats = data
-  $('#statsMessaging').text('You have played' + store.stats.games.length + 'games')
+  $('#stats-button').text('You have played' + store.stats.games.length + 'games')
 }
 
 const getStatsFailure = function (error) {
