@@ -28,6 +28,8 @@ const signInFailure = function () {
 const signOutSuccess = function () {
   store.user = null
   $('#sign-out-msg').html(`<p>Sign-out success!</p>`)
+  $('#start-button').hide()
+  $('#change-pass-msg').hide()
 }
 
 const signOutFailure = function () {

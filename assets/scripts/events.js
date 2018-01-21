@@ -91,7 +91,7 @@ const onSignIn = function (event) {
 // }
 
 const onSignOut = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
   gameArray = ['', '', '', '', '', '', '', '', '']
   $('#0').text('')
   $('#1').text('')
@@ -102,7 +102,8 @@ const onSignOut = function (event) {
   $('#6').text('')
   $('#7').text('')
   $('#8').text('')
-  // over = false
+  onCreateUser()
+  onSignIn()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
