@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Game Board</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<div class= "jumbotron text-center">
+<body class= "container-fluid">
+  <h1> Tic Tac Toe </h1>
+  <table id="Tic-Tac-Toe" style= "display: none;">
+    <tr>
+      <td id="0"></td>
+      <td id="1"></td>
+      <td id="2"></td>
+    </tr>
+    <tr>
+      <td id="3"></td>
+      <td id="4"></td>
+      <td id="5"></td>
+    </tr>
+    <tr>
+      <td id="6"></td>
+      <td id="7"></td>
+      <td id="8"></td>
+    </tr>
+  </table>
+</div>
+
+  <div id= "space-taken" style="display: none;">
+      <p> Space taken, choose another space </p>
+        </div>
+          <div id= "x-winner" style="display: none;">
+            <p> Player X, you are the winner! </p>
+          </div>
+            <div id= "o-winner" style="display: none;">
+              <p> Player O, you are the winner! </p>
+            </div>
+              <div id= "new-game" style="display: none;">
+                <p> Game Over. Click "Reset" to start a new game or sign out. </p>
+              </div>
+          <form id="turn-message">
+          </form>
+          <form id="full-message" style= "display: none;">
+            <p> Board is full- game is a draw. </p>
+            </form>
+  <!-- <div> -->
+  <div id="start-button" style="display: none;">
+    <button>START GAME</button>
+  </div>
+
+    <form id="sign-up">
+    <div id="sign-up-msg">
+      </div>
+      <fieldset id = "credentials_SU">
+        <input name="credentials[email]" type="text" placeholder="email">
+        <input name="credentials[password]" type="password" placeholder="password">
+        <button>SIGN UP</button>
+      </fieldset>
+    </form>
+    <!-- </div> -->
+      <form id="sign-in">
+        <div id="sign-in-msg" style="display: none;">
+        </div>
+        <fieldset id = "credentials_SI">
+          <input name="credentials[email]" type="text" placeholder="email">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <button>SIGN IN</button>
+        </fieldset>
+      </form>
+    <div id="change-pass-msg" style="display: none;">
+      <form id="change-pass">
+        <fieldset>
+          <input name="passwords[old]" type="password" placeholder="current password">
+          <input name="passwords[new]" type="password" placeholder="new password">
+          <button>CHANGE PASSWORD</button>
+        </fieldset>
+      </form>
+    </div>
+        <div id= "sign-out-msg" style="display: none;">
+          <form id="sign-out">
+              <button>SIGN OUT</button>
+          </form>
+        </div>
+        <div>
+          <button type="button" id="reset-button" style="display: none;" >RESET GAMEBOARD WITH SAME USER</button>
+          </div>
+            <div>
+              <button type="button" id="stats-button" style="display: none;"> SEE YOUR STATS</button>
+            </div>
+
+</body>
+
+</html>
