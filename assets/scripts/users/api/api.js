@@ -56,7 +56,7 @@ const getStats = function () {
 }
 
 const updateGame = function (data) {
-  // console.log('store game id is ', store.game.id)
+  console.log('store game id is ', store.game)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',

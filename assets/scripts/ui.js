@@ -43,7 +43,7 @@ const changePassFailure = function () {
 }
 
 const startGameSuccess = function (data) {
-  store.games = data
+  store.game = data
   $('#sign-up-msg').html('<p>Game has begun! </p>')
   $('#Tic-Tac-Toe').show()
   $('#stats-button').show()
@@ -58,7 +58,7 @@ const startGameFailure = function (error) {
 }
 
 const updateGameSuccess = function (data) {
-  store.games = data
+  store.game = data
   // console.log('successfully updated game')
 }
 
@@ -68,7 +68,7 @@ const updateGameFailure = function (error) {
 
 const getStatsSuccess = function (data) {
   store.stats = data
-  $('#stats-button').text('You have played' + ' ' + store.stats.games.length + ' ' + 'games')
+  $('#stats-button').text('You have played' + ' ' + store.stats.game.length + ' ' + 'games')
 }
 
 const getStatsFailure = function (error) {
