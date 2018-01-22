@@ -43,6 +43,8 @@ const changePassFailure = function () {
 }
 
 const startGameSuccess = function (data) {
+  console.log('New game data is', data)
+  console.log('New game ID is', data.id)
   store.game = data
   $('#sign-up-msg').html('<p>Game has begun! </p>')
   $('#Tic-Tac-Toe').show()

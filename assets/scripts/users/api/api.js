@@ -4,6 +4,8 @@ const config = require('../../config')
 const store = require('../../store.js')
 
 const create = function (data) {
+  console.log('New game data is ', data)
+  console.log('New game ID is ', data.id)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
@@ -56,9 +58,10 @@ const getStats = function () {
 }
 
 const updateGame = function (data) {
-  console.log('store game id is ', store.game)
+  console.log('store game is ', store.game)
+  console.log('store game is ', store.game.game.id)
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
+    url: config.apiOrigin + '/games/' + store.game.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token,
