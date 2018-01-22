@@ -15,7 +15,10 @@ Future potential:
 
 Wireframes:
 See two pictures attached.
-- Becasue I didn't ahve time to focus on the styling, my wireframes do not look like my finished product does.
+- Becasue I didn't have time to focus on the styling, my wireframes do not look like my finished product does.
+![tictactoe wireframe](https://user-images.githubusercontent.com/33734734/35205296-0d5e8c5e-ff02-11e7-8f39-d0bba4bc80da.jpeg)
+![tictactoewireframe2](https://user-images.githubusercontent.com/33734734/35205311-23cb8f3c-ff02-11e7-8aea-2897427ca529.jpeg)
+
 
 User stories:
 - As a user I want to be able to complete more than one game of Tic Tac Toe.
