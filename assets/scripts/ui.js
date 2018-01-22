@@ -11,15 +11,13 @@ const createUserFailure = function () {
 }
 const signInSuccess = function (response) {
   store.user = response.user
-  console.log(store.user.token)
+  // console.log(store.user.token)
   $('#sign-up-msg').html(`<p>You have signed in!</p>`)
   $('#credentials_SI').hide()
   $('#start-button').show()
   $('#change-pass-msg').show()
   $('#sign-out-msg').show()
 }
-
-// store.user = data.user
 
 const signInFailure = function () {
   $('#user-msg').html(`<p>Sign-in failed!</p>`)
@@ -52,7 +50,7 @@ const startGameSuccess = function (data) {
   $('#reset-button').show()
   $('#start-button').hide()
   $('#sign-up').hide()
-  console.log('that worked')
+  // console.log('that worked')
 }
 
 const startGameFailure = function (error) {
@@ -61,7 +59,7 @@ const startGameFailure = function (error) {
 
 const updateGameSuccess = function (data) {
   store.games = data
-  console.log('successfully updated game')
+  // console.log('successfully updated game')
 }
 
 const updateGameFailure = function (error) {
@@ -74,17 +72,7 @@ const getStatsSuccess = function (data) {
 }
 
 const getStatsFailure = function (error) {
-  console.log(error)
-}
-
-const checkWin = function (token) {
-  let score = 0
-  for (let i = 0; i < store.games.length; i++) {
-    if ((store.games[i].cells[0] === token && store.games[i].cells[1] === token && store.games[i].cells[2] === token) || (store.games[i].cells[3] === token && store.games[i].cells[4] === token && store.games[i].cells[5] === token) || (store.games[i].cells[6] === token && store.games[i].cells[7] === token && store.games[i].cells[8] === token) || (store.games[i].cells[0] === token && store.games[i].cells[3] === token && store.games[i].cells[6] === token) || (store.games[i].cells[1] === token && store.games[i].cells[4] === token && store.games[i].cells[7] === token) || (store.games[i].cells[2] === token && store.games[i].cells[5] === token && store.games[i].cells[8] === token) || (store.games[i].cells[0] === token && store.games[i].cells[4] === token && store.games[i].cells[8] === token) || (store.games[i].cells[2] === token && store.games[i].cells[4] === token && store.games[i].cells[6] === token)) {
-      score++
-    }
-  }
-  return score
+  console.error(error)
 }
 
 module.exports = {
@@ -96,7 +84,6 @@ module.exports = {
   signOutFailure,
   changePassSuccess,
   changePassFailure,
-  checkWin,
   startGameFailure,
   startGameSuccess,
   updateGameSuccess,

@@ -1,23 +1,17 @@
 'use strict'
-// const store = require('./store')
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./users/api/api')
-const config = require('./config')
+// const config = require('./config')
 const ui = require('./ui')
-// const store = require('./store')
-// const store = require('.store')
 
 let gameArray = []
 let turnCount
 let currentPlayer
-// let over = false
 
-// let showBoard = false
 const createGame = function () {
   gameArray = ['', '', '', '', '', '', '', '', '']
   turnCount = 0
   currentPlayer = 'X'
-  // over = false
 }
 
 const resetGameBoard = function () {
@@ -33,45 +27,36 @@ const resetGameBoard = function () {
 const resetGame = function (event) {
   createGame()
   resetGameBoard()
-  // onCreateUser()
-  // onSignIn()
-  // $('#credentials_SI').hide()
-  // $('#credentials_SU').hide()
-  // $('#sign-out-msg').html('')
-  // $('#change-pass-msg').html('')
-  // $('#user-msg').html('')
-  // $('#sign-in-msg').html('')
-  // $('#Tic-Tac-Toe').hide()
 }
 
 const player = function (boxNum) {
-  console.log('boxnum is', boxNum)
+  // console.log('boxnum is', boxNum)
   if (turnCount % 2 === 0) {
-    console.log('even')
+    // console.log('even')
     currentPlayer = 'X'
     $('#turn-message').text(`current turn is O`)
     const boxId = '#' + boxNum
     $(boxId).text('X')
     turnCount++
     gameArray[boxNum] = 'x'
-    console.log('this works', gameArray)
+    // console.log('this works', gameArray)
   } else {
-    console.log('odd')
+    // console.log('odd')
     currentPlayer = '0'
     $('#turn-message').text(`current turn is X`)
     const boxId = '#' + boxNum
     $(boxId).text('O')
     turnCount++
     gameArray[boxNum] = 'o'
-    console.log('this works', gameArray)
+    // console.log('this works', gameArray)
   }
 }
 
 const onCreateUser = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
-  console.log(config.apiOrigin)
+  // console.log(data)
+  // console.log(config.apiOrigin)
   api.create(data)
     .then(ui.createUserSuccess)
     .catch(ui.createUserFailure)
@@ -81,14 +66,11 @@ const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   // console.log(data)
-  console.log(config.apiOrigin)
+  // console.log(config.apiOrigin)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
-// const onShowBoard = function () {
-// $('#Tic-Tac-Toe').showBoard()
-// }
 
 const onSignOut = function (event) {
   // event.preventDefault()
@@ -111,15 +93,14 @@ const onSignOut = function (event) {
 const onChangePass = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('worked', data)
-  console.log(config.apiOrigin)
+  // console.log('worked', data)
+  // console.log(config.apiOrigin)
   api.changePass(data)
     .then(ui.changePassSuccess)
     .catch(ui.changePassFailure)
 }
 
 const startGame = function (event) {
-  // over = false
   api.startGame()
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -128,38 +109,33 @@ const startGame = function (event) {
 const onGameIndex = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
-  console.log(config.apiOrigin)
+  // console.log(data)
+  // console.log(config.apiOrigin)
   api.gameIndex(data)
 }
 
 const addHandlers = function () {
   const boxClick = function (event) {
     event.preventDefault()
-    console.log(this.id)
-    console.log(turnCount)
+    // console.log(this.id)
+    // console.log(turnCount)
     const boxNum = this.id
-    // GAME ARRAY
-    // WHEN YOU GET TO A GOOD POINT, YOU SHOULD BE UPDATING THE STORE TO REFLECT
-    // THE GAME STORED IN THE API, AND COMPARING THIS CELL TO THE NEWLY STORED cell
     if (gameArray[boxNum] !== '') {
-      console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
+      // console.log('ALREADY SELECTED, CHOOSE ANOTHER SPACE')
       $('#space-taken').show()
     } else {
       player(boxNum)
-      console.log(checkWinner())
+      // console.log(checkWinner())
       if ((checkWinner()) && !(turnCount % 2 === 0)) {
         $('#x-winner').show()
         $('#new-game').show()
         $('#turn-message').hide()
         onUpdateGame()
-        // gameOver = true
       } else if (checkWinner()) {
         $('#o-winner').show()
         $('#new-game').show()
         $('#turn-message').hide()
         onUpdateGame()
-        // gameOver = true
       }
     }
   }
@@ -185,41 +161,39 @@ const addHandlers = function () {
   $('#stats-button').on('click', onGetStats)
 
   return false
-  // $('#start-button').on('click', resetGame)
-  // $('#Tic-Tac-Toe').on('submit', onSignIn)
 }
 
 const checkWinner = function () {
   if ((gameArray[0] === gameArray[1]) && (gameArray[0] && gameArray[2]) && (gameArray[0] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[3] === gameArray[4]) && (gameArray[3] && gameArray[5]) && (gameArray[3] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[6] === gameArray[7]) && (gameArray[6] && gameArray[8]) && (gameArray[6] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[0] === gameArray[3]) && (gameArray[0] && gameArray[6]) && (gameArray[0] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[1] === gameArray[4]) && (gameArray[1] && gameArray[7]) && (gameArray[1] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[2] === gameArray[5]) && (gameArray[2] && gameArray[8]) && (gameArray[2] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[0] === gameArray[4]) && (gameArray[0] && gameArray[8]) && (gameArray[0] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else if
   ((gameArray[2] === gameArray[4]) && (gameArray[2] && gameArray[6]) && (gameArray[2] !== '')) {
-    console.log('this works')
+    // console.log('this works')
     return true
   } else {
     return false
@@ -233,11 +207,6 @@ const boardFull = function (gameArray) {
     }
   }
 }
-// const onUpdateGame = function (boxNum) {
-// if ((checkWin() === true) || (boardFull(gameArray) === true)) {
-//     over = true
-//   }
-// }
 
 const onGetStats = function (event) {
   event.preventDefault()
@@ -246,9 +215,8 @@ const onGetStats = function (event) {
     .catch(ui.getStatsFailure)
 }
 
-const onUpdateGame = function (boxNum) {
+const onUpdateGame = function (event) {
   if ((checkWinner() === true) || (boardFull(gameArray) === true)) {
-    // over = true
   }
   api.updateGame()
     .then(ui.updateGameSuccess)
